@@ -8,11 +8,13 @@ class Tablero {
     1->hay una ficha X
     2->hay una ficha O
      */
-    private val casillas = arrayOf(IntArray(3) {0}, IntArray(3) {0}, IntArray(3) {0})
+    private val tamanyo = 3
+    private val casillas = arrayOf(IntArray(tamanyo) {0}, IntArray(tamanyo) {0}, IntArray(tamanyo) {0})
     private var casillasLibres = 9
 
     //Reiniciamos a 0 todos los valores
     fun reiniciarTablero() {
+        casillasLibres = casillas.size * casillas[0].size //es decir, 9
         for(i in 0..2)
             for(j in 0..2)
                 casillas[i][j] = 0
