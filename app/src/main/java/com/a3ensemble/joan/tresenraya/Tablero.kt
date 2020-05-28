@@ -14,7 +14,7 @@ class Tablero {
 
     private val casillas = Array(TAMANYO) {IntArray(TAMANYO) {0} }
     //antes private val casillas = arrayOf(IntArray(tamanyo) {0}, IntArray(tamanyo) {0}, IntArray(tamanyo) {0})
-    private var casillasLibres = TAMANYO* TAMANYO
+    private var casillasLibres = TAMANYO * TAMANYO
 
     //Reiniciamos a 0 todos los valores
     fun reiniciarTablero() {
