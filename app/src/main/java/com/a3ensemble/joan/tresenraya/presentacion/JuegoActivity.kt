@@ -1,8 +1,8 @@
-package com.a3ensemble.joan.tresenraya
+package com.a3ensemble.joan.tresenraya.presentacion
 
 import android.os.Bundle
-import android.os.PersistableBundle
 import androidx.appcompat.app.AppCompatActivity
+import com.a3ensemble.joan.tresenraya.R
 
 class JuegoActivity : AppCompatActivity() {
 

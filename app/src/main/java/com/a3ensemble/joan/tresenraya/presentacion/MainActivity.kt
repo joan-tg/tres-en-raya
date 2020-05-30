@@ -1,10 +1,9 @@
-package com.a3ensemble.joan.tresenraya
+package com.a3ensemble.joan.tresenraya.presentacion
 
-import android.app.ActionBar
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.view.View
+import com.a3ensemble.joan.tresenraya.R
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
@@ -16,12 +15,5 @@ class MainActivity : AppCompatActivity() {
         boton_salir.setOnClickListener { finish() }
         boton_jugar.setOnClickListener { startActivity(Intent(this, JuegoActivity::class.java))}
 
-        val tablero = Tablero()
-        tablero.ponerFicha(0, 0, 1)
-        println(tablero.toString())
-        tablero.ponerFicha(1, 1, 2)
-        println(tablero.toString())
-        tablero.ponerFicha(0, 1, 1)
-        println(tablero.toString())
     }
 }

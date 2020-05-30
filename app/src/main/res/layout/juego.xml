@@ -3,7 +3,7 @@
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <com.a3ensemble.joan.tresenraya.VistaJuego
+    <com.a3ensemble.joan.tresenraya.presentacion.VistaJuego
         android:id="@+id/VistaJuego"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -12,6 +12,6 @@
 
 
 
-    </com.a3ensemble.joan.tresenraya.VistaJuego>
+    </com.a3ensemble.joan.tresenraya.presentacion.VistaJuego>
 
 </LinearLayout>

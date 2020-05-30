@@ -1,4 +1,5 @@
-package com.a3ensemble.joan.tresenraya
+package com.a3ensemble.joan.tresenraya.modelo
+
 
 class Tablero {
     /*
@@ -12,7 +13,9 @@ class Tablero {
         const val TAMANYO = 3
     }
 
-    private val casillas = Array(TAMANYO) {IntArray(TAMANYO) {0} }
+    private val casillas = Array(TAMANYO) {IntArray(
+        TAMANYO
+    ) {0} }
     //antes private val casillas = arrayOf(IntArray(tamanyo) {0}, IntArray(tamanyo) {0}, IntArray(tamanyo) {0})
     private var casillasLibres = TAMANYO * TAMANYO
 
@@ -42,16 +45,61 @@ class Tablero {
         } else false
     }
 
+
+    fun haGanadoAlIntroducir(x: Int, y: Int, tipoFicha: Int):Boolean {
+        if (casillasLibres <= 5) {
+            //check col
+            for (i in 0 until TAMANYO) {
+                if (casillas[x][i] != tipoFicha) break
+                if (i == TAMANYO - 1) {
+                    return true
+                }
+            }
+
+            //check row
+            for (i in 0 until TAMANYO) {
+                if (casillas[i][y] != tipoFicha) break
+                if (i == TAMANYO - 1) {
+                    return true
+                }
+            }
+
+            //check diag
+            if (x == y) {
+                //we're on a diagonal
+                for (i in 0 until TAMANYO) {
+                    if (casillas[i][i] != tipoFicha) break
+                    if (i == TAMANYO - 1) {
+                        return true
+                    }
+                }
+            }
+
+            //check anti diag (thanks rampion)
+            if (x + y == TAMANYO - 1) {
+                for (i in 0 until TAMANYO) {
+                    if (casillas[i][TAMANYO - 1 - i] != tipoFicha) break
+                    if (i == TAMANYO - 1) {
+                        return true
+                    }
+                }
+            }
+        }
+        else return false
+        return false //por qué??
+    }
+
+
     /*
     Método para saber si ha ganado el jugador (devuelve true en caso afirmativo)
      */
-    fun haGanadoAlIntroducir(x: Int, y: Int):Boolean {
+    fun haGanadoAlIntroducir2(x: Int, y: Int):Boolean {
         /*
          Solamente se comprueba en el caso de que queden 4 o menos casillas libres,
          ya que significará que hay 5 piezas o más introducidas
          (son las mínimas para que pueda haber algun resultado ganador)
          */
-        if (casillasLibres <= 4) {
+        if (casillasLibres <= 5) {
             val valorCasilla = casillas[x][y]
             /*
             x será el eje X de la matriz
